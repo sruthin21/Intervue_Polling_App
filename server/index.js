@@ -9,7 +9,7 @@ import { fileURLToPath } from "url";
 
 // resolve __dirname (ESM)
 const __filename = fileURLToPath(import.meta.url);
-const _dirname = path.dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 // ... keep your existing app/server/socket.io code ...
 
