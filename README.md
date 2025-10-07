@@ -16,7 +16,7 @@ npm run dev
 ```bash
 cd ../client
 npm install
-# echo "VITE_BACKEND_URL=http://localhost:4000" > .env
+# echo "VITE_BACKEND_URL=http://localhost:5000" > .env
 npm run dev
 ```
 

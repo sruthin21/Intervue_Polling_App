@@ -4,6 +4,24 @@ import http from 'http';
 import cors from 'cors';
 import { Server } from 'socket.io';
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+// resolve __dirname (ESM)
+const __filename = fileURLToPath(import.meta.url);
+const _dirname = path.dirname(_filename);
+
+// ... keep your existing app/server/socket.io code ...
+
+// --- Serve React build from /client/dist ---
+const clientDist = path.join(__dirname, "../client/dist");
+app.use(express.static(clientDist));
+
+// SPA fallback so client-side routes work
+app.get("*", (req, res) => {
+  res.sendFile(path.join(clientDist, "index.html"));
+});
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -135,5 +153,5 @@ io.on('connection', (socket)=>{
 
 app.get('/', (_req,res)=> res.json({ok:true, service:'Live Polling System'}));
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, ()=> console.log('Server listening on http://localhost:'+PORT));
