@@ -9,7 +9,7 @@ import Student from './pages/Student.jsx'
 import Kicked from './pages/Kicked.jsx'
 import History from './pages/History.jsx'
 
-const backendURL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'
+const backendURL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:10000'
 const socket = io(backendURL,{autoConnect:false})
 
 export default function App(){

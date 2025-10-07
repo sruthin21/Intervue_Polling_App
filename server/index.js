@@ -140,7 +140,7 @@ app.use(express.static(clientDist));
 app.get("*", (_req, res) => res.sendFile(path.join(clientDist, "index.html")));
 
 /* ----- Start ----- */
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
